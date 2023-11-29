@@ -32,9 +32,7 @@ public class Card {
         rank = str;
     }
 
-    public String toString()
-    {
+    public String toString() {
         return rank + " of " + suit;
     }
-    )
 }
