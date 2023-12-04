@@ -32,6 +32,9 @@ public class Player {
         return hand;
     }
 
+    public Card getTopCard(){
+        return this.hand.remove(0);
+    }
     public void addPoints(int points)
     {
         point += points;
