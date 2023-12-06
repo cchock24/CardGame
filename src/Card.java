@@ -4,7 +4,13 @@ public class Card {
     private String suit;
     private String rank;
 
-    public Card(String suit, String rank) {
+    public Card(String suit, String rank, int point) {
+        this.suit = suit;
+        this.rank = rank;
+        this.point = point;
+    }
+
+    public Card(String suit, String rank){
         this.suit = suit;
         this.rank = rank;
     }
@@ -30,6 +36,16 @@ public class Card {
     public void setRank(String str)
     {
         rank = str;
+    }
+
+    public void setPoint(int num)
+    {
+        point = num;
+    }
+
+    public int getPoint()
+    {
+        return point;
     }
 
     public String toString() {
