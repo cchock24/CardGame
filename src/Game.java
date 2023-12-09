@@ -15,11 +15,10 @@ public class Game {
 
     private ArrayList<Card> pile;
 
-    public Game()
-    {
-        deck = new Deck();
-        pile = new ArrayList<Card>();
-        s = new Scanner(System.in);
+    public Game(){
+            deck = new Deck();
+            pile = new ArrayList<Card>();
+            s = new Scanner(System.in);
     }
     public static void main(String[] args) {
         Game b = new Game();
@@ -45,6 +44,7 @@ public class Game {
             b.addTurn();
             win = b.checkWin();
         }
+        System.out.println("Player " +  (p+1) + " wins!");
     }
 // Gets Player Name's and Number
     public void makePlayers()
@@ -101,6 +101,7 @@ public class Game {
     public void playCard(){
         this.explainValue();
         ArrayList<Card> check = new ArrayList<>();
+        this.showHand(p);
         System.out.println("How Many Cards Do You Want to Play");
         int amount = s.nextInt();
         s.nextLine();
@@ -112,12 +113,16 @@ public class Game {
             pile.add(players[p].getHand().remove(index));
         }
         this.clearScreen();
+        System.out.println("Player " + (p+1) + " played " + amount + " cards");
         System.out.println("Do You Think They Lied");
         boolean lie = s.nextBoolean();
         s.nextLine();
         if(lie)
         {
             //Ask for Player's Number
+            System.out.println("What is your player number");
+            int guess = s.nextInt();
+            s.nextLine();
             boolean result = this.checkLie(check);
             if(!result)
             {
@@ -134,7 +139,7 @@ public class Game {
                 // Change to make guessing player take the cards
                 for(int i = 0; i < pile.size(); i++)
                 {
-                    players[p].addCard(pile.remove(i));
+                    players[guess].addCard(pile.remove(i));
                 }
             }
         }
